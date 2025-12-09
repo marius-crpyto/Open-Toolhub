@@ -55,9 +55,18 @@ func (s *Server) Router(group string) {
 }
 
 func (s *Server) Run(addr string) error {
-
-	// Log server startup using zap
 	s.logger.Info("server run", zap.String("addr", addr))
-
 	return s.engine.Run(addr)
+}
+
+func (s *Server) AddApiPaths(paths ...ApiPath) {
+	s.apiPathList = append(s.apiPathList, paths...)
+}
+
+func (s *Server) AddApiPath(path ApiPath) {
+	s.apiPathList = append(s.apiPathList, path)
+}
+
+func (s *Server) Engine() *gin.Engine {
+	return s.engine
 }
