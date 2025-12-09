@@ -1,15 +1,15 @@
 package server
 
-type Response[T any] struct {
+type Response struct {
 	Code    int    `json:"code"`
 	Message string `json:"message,omitempty"`
-	Data    T      `json:"data,omitempty"`
+	Data    any    `json:"data,omitempty"`
 }
 
-func Ok[T any](data T) Response[T] {
-	return Response[T]{Code: 0, Data: data}
+func Ok(data any) Response {
+	return Response{Code: 0, Data: data}
 }
 
-func Err(code int, msg string) Response[struct{}] {
-	return Response[struct{}]{Code: code, Message: msg}
+func Err(code int, msg string) Response {
+	return Response{Code: code, Message: msg}
 }
