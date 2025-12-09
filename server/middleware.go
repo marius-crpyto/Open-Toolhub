@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"toolhub/logger"
+	"github.com/marius-crpyto/toolhub/logger"
 )
 
 type GinLogger struct {

@@ -1,4 +1,4 @@
-module toolhub
+module github.com/marius-crpyto/toolhub
 
 go 1.24.0
 
